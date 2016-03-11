@@ -12,6 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li @if(Route::is('create')) class="active" @endif><a href="{{ url('movie/create') }}">Add new one</a></li>
+                <li @if(Route::is('create')) class="active" @endif><a href="{{ url('second') }}">Task 2</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
