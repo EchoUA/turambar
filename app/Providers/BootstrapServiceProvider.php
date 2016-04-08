@@ -16,7 +16,6 @@ class BootstrapServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../vendor/twbs/bootstrap/dist' => public_path('/'),
         ], 'public');
-
     }
 
     /**

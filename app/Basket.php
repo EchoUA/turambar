@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Movies extends Model
+class Basket extends Model
 {
     protected $fillable = [
         'name',
-        'desc',
-        'year',
-        'isActive'
+        'capacity',
+        'contents'
     ];
 }
