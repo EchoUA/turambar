@@ -34,6 +34,7 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Capacity</th>
                                 <th>Contents</th>
@@ -41,6 +42,7 @@
                             </thead>
                             @foreach($baskets as $basket)
                                 <tr>
+                                    <td>{{ $basket->id }}</td>
                                     <td>{{ $basket->name }}</td>
                                     <td>{{ $basket->capacity }}</td>
                                     <td>
