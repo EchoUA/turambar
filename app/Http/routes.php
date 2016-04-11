@@ -12,7 +12,7 @@
 */
 Route::get('/', 'IndexController@index');
 
-Route::group(['prefix' => 'api/v1', 'middleware' => 'throttle'], function() {
+Route::group(['prefix' => 'api/v1'/*, 'middleware' => 'throttle'*/], function() {
     Route::resource('items', 'ItemController', [
         'only' => ['index', 'show'],
     ]);
