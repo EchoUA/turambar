@@ -125,7 +125,7 @@
 
         <tr>
             <td>Edit specific basket</td>
-            <td>{{ url('api', ['v1', 'baskets', '*id']) }}</td>
+            <td>{{ url('api', ['v1', 'baskets', 'id']) }}</td>
             <td><code>POST (PUT/PATCH)</code></td>
             <td>
                 <ul>
