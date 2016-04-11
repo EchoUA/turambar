@@ -12,12 +12,12 @@
 */
 Route::get('/', 'IndexController@index');
 
-Route::group(['prefix' => 'api/v1'/*, 'middleware' => 'throttle'*/], function() {
+Route::group(['prefix' => 'api/v1', 'middleware' => 'throttle'], function() {
     Route::resource('items', 'ItemController', [
         'only' => ['index', 'show'],
     ]);
 
-    Route::patch('baskets/{baskets}/add', 'BasketController@addItems');
+    Route::post('baskets/{baskets}/add', 'BasketController@addItems');
     Route::resource('baskets', 'BasketController', [
         'except' => ['create', 'edit']
     ]);

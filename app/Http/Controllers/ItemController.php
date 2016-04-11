@@ -20,6 +20,11 @@ class ItemController extends ApiController
     {
         $items = Item::all();
 
+        if ( ! $items->count()) {
+
+            return $this->responseNotFound();
+        }
+
         return $this->respond([
             'data' => $this->outputCollection($items->all())
         ]);
