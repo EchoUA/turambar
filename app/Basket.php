@@ -11,4 +11,13 @@ class Basket extends Model
         'capacity',
         'contents'
     ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function items()
+    {
+        return $this->belongsToMany(Item::class);
+    }
 }

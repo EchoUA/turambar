@@ -31,7 +31,7 @@ class ItemsTableSeeder extends Seeder
 
         Item::insert([
             'type' => 'watermelon',
-            'weight' => '3',
+            'weight' => '4',
             'created_at' => Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now(),
         ]);

@@ -25,7 +25,9 @@ class BasketController extends ApiController
             return $this->responseNotFound();
         }
 
-        return $this->outputCollection($baskets);
+        return $this->respond([
+            'data' => $this->outputCollection($baskets)
+        ]);
     }
 
     /**
@@ -38,6 +40,7 @@ class BasketController extends ApiController
      */
     public function store(Request $request, Basket $basket)
     {
+
         if ($this->validation($request)->fails()) {
 
             return $this->setStatusCode(400)->respondWithError('Something is wrong with your params!');
@@ -75,12 +78,17 @@ class BasketController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        if ($this->validationUpdate($request)->fails()) {
+        if ($this->validation($request)->fails()) {
 
             return $this->setStatusCode(400)->respondWithError('Something is wrong with your params!');
         }
 
         $basket = Basket::find($id);
+
+        if ( ! $basket ) {
+
+            return $this->responseNotFound();
+        }
 
         return $this->updateBasket($basket, $request);
     }
@@ -189,88 +197,5 @@ class BasketController extends ApiController
         $basket->delete();
 
         return $this->responseCreated('Successfully Deleted!');
-    }
-
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return mixed
-     */
-    public function addItems(Request $request, $id)
-    {
-        if ( ! $request->items) {
-
-            return $this->setStatusCode(400)->respondWithError('Something is wrong with your params!');
-        }
-
-        return $this->fillBasket($request, $id);
-    }
-
-
-    /**
-     * @param $request
-     * @param $id
-     * @return mixed
-     */
-    private function fillBasket($request, $id)
-    {
-        $basket = Basket::find($id);
-
-        if ( ! $this->basketCapacity($request, $basket)) {
-
-            return $this->setStatusCode(400)->respondWithError('Too heavy for this basket!');
-        }
-
-        return $this->saveToBasket($request, $basket);
-    }
-
-
-    /**
-     * @param $request
-     * @param $basket
-     * @return bool
-     */
-    private function basketCapacity($request, $basket)
-    {
-        //$check_weight = Item::whereIn('id', $request->items)->lists('weight')->sum();
-        $check_weight = '';
-
-        foreach ($request->items as $id) {
-
-            $check_weight += Item::where('id', $id)->lists('weight')->first();
-        }
-
-        return $check_weight <= $basket->capacity;
-    }
-
-    /**
-     * @param $request
-     * @param $basket
-     * @return mixed
-     */
-    private function saveToBasket($request, $basket)
-    {
-        $basket->update([
-            'contents' => implode(',', $request->items)
-        ]);
-
-        return $this->responseCreated('Successfully added to basket!');
-    }
-
-
-    /**
-     * @param $request
-     * @return mixed
-     */
-    private function validationUpdate($request)
-    {
-        $rules = array(
-            '_method' => 'required',
-            'name' => 'required',
-            //'capacity' => 'required|integer'
-        );
-
-        return Validator::make($request->all(), $rules);
     }
 }

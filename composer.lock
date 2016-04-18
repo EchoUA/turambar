@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a83f44cb7b0747434d804712cc82ec7c",
-    "content-hash": "2ba92ceea54f72d875eb8bdf400d33d3",
+    "hash": "a19c609aa4942913480aa591e202c01a",
+    "content-hash": "8e956d6b0d96fff08c9472328379cabd",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -519,16 +519,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -593,7 +593,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1777,6 +1777,56 @@
                 "web"
             ],
             "time": "2015-11-24 19:37:05"
+        },
+        {
+            "name": "vinelab/http",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vinelab/http.git",
+                "reference": "9231176e7bb1fcc683904ab781f2f033c47333ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vinelab/http/zipball/9231176e7bb1fcc683904ab781f2f033c47333ca",
+                "reference": "9231176e7bb1fcc683904ab781f2f033c47333ca",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Vinelab\\Http": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abed Halawi",
+                    "email": "abed.halawi@vinelab.com"
+                }
+            ],
+            "description": "An http library developed for the laravel framework. aliases itself as HttpClient",
+            "keywords": [
+                "api",
+                "client",
+                "curl",
+                "http",
+                "json",
+                "laravel",
+                "xml"
+            ],
+            "time": "2015-02-26 17:08:05"
         },
         {
             "name": "vlucas/phpdotenv",
